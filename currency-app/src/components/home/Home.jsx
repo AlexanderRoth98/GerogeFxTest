@@ -9,15 +9,9 @@ const Home = () => {
 
   return (
     <div id='container'>
-      <div id='header'>
-        <Header />
-      </div>
-      <div id='search-bar'>
-        <SearchBar />
-      </div>
-      <div id='currency-list'>
-        <CurrencyList />
-      </div>
+      <Header />
+      <SearchBar />
+      <CurrencyList />
     </div>
   )
 }

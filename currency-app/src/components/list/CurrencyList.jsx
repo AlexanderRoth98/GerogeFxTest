@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CurrencyList = () => {
-  return <div>CurrencyList</div>
+  return <div id='currency-list'>CurrencyList</div>
 }
 
 export default CurrencyList
