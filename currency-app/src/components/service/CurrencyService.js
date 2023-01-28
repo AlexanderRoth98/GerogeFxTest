@@ -23,16 +23,12 @@ export async function fetchCurrencyList(fetchCallback) {
         }
     })
 
-
+    // currencyList.fx.splice(3, currencyList.fx.length)
 
     cleanCurrencyList(currencyList)
-
-
-
     fetchCallback(currencyList)
 }
 
 const cleanCurrencyList = (currencyList) => {
-
     currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate)
 }

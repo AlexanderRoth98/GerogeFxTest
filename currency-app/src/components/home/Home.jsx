@@ -18,7 +18,7 @@ const Home = () => {
   }
 
   return (
-    <div id='container'>
+    <div id='app-container'>
       <Header />
       <SearchBar />
       <CurrencyList data={data} />
