@@ -10,6 +10,10 @@ module.exports = {
       }
 
     },
+    colors: {
+      blue: '#1a67d2',
+      white: '#ffffff'
+    }
   },
   plugins: [],
 }
