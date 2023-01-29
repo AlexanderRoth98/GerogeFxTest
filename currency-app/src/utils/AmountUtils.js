@@ -5,14 +5,14 @@ export function formatAmount(amount) {
 
     if (decimalIndex != '-1') {
         if (string[decimalIndex + 1] != '0')
-            return formattedAmount.toFixed(2)
+            return formattedAmount.toFixed(3)
         let ok = false
         let index = 1
 
         while (!ok && index < 6) {
             if (string[decimalIndex + index] != '0') {
                 ok = true
-                return formattedAmount.toFixed(index)
+                return formattedAmount.toFixed(index + 1)
             }
             index++
         }
