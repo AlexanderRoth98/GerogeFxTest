@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import Header from '../header/Header'
 import CurrencyList from '../list/CurrencyList'
 import SearchBar from '../search/SearchBar'
-import { fetchCurrencyList } from '../service/CurrencyService'
+import { fetchCurrencyList } from '../../service/CurrencyService'
 
 const Home = () => {
   let { currency } = useParams()
