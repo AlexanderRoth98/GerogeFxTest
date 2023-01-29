@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CurrencyDisplay = ({ currency }) => {
+const CurrencyDisplay = ({ className, currency }) => {
   return (
-    <div id='currency' className='font-bold text-2xl'>
+    <div id='currency' className={`font-bold text-2xl ${className}`}>
       {currency}
     </div>
   )

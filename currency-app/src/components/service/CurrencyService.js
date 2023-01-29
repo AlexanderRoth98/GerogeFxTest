@@ -30,5 +30,5 @@ export async function fetchCurrencyList(fetchCallback) {
 }
 
 const cleanCurrencyList = (currencyList) => {
-    currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate)
+    currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate && entry.currency.trim().length != 0)
 }
