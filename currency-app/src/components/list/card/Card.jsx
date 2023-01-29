@@ -15,11 +15,11 @@ const Card = ({ data }) => {
       </div>
       <div className='w-1/2 mr-3 py-2 flex justify-end'>
         <div className='ml-6 text-right'>
-          <AmountDisplay message={'You pay:'} amount={data.exchangeRate.buy} />
-          <AmountDisplay message={'You get:'} amount={data.exchangeRate.sell} />
-          <AmountDisplay message={'Mid:'} amount={data.exchangeRate.middle} />
+          <AmountDisplay message={'You pay'} amount={data.exchangeRate.buy} />
+          <AmountDisplay message={'You get'} amount={data.exchangeRate.sell} />
+          <AmountDisplay message={'Mid'} amount={data.exchangeRate.middle} />
         </div>
-        <CurrencyDisplay className='max-[600px]:mt-11 min-[600px]:mt-5 ml-7' currency={'EUR'} />
+        <CurrencyDisplay className='max-[600px]:mt-11 min-[600px]:mt-5 ml-8' currency={'EUR'} />
       </div>
       {/* {data.currency} {data.nameI18N} buy: {data.exchangeRate.buy} sell: {data.exchangeRate.sell} flag: {data.flags} flagAlt: {data.currency.slice(0, 2).toLowerCase()}{' '} */}
     </div>
