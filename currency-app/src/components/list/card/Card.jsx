@@ -4,6 +4,7 @@ import Flag from './card-items/Flag'
 import CurrencyDisplay from './card-items/CurrencyDisplay'
 
 import AmountContainer from './card-items/AmountContainer'
+import CountryDisplay from './card-items/CountryDisplay'
 
 const Card = ({ data }) => {
   const [multiplier, setMultiplier] = useState(null)
@@ -15,7 +16,9 @@ const Card = ({ data }) => {
           <Flag currency={data.currency} />
           <CurrencyDisplay className='ml-2' multiplier={multiplier} currency={data.currency} />
         </div>
-        <div className='mt-2'>{data.nameI18N}</div>
+        <div className='mt-2'>
+          <CountryDisplay currency={data.currency} />
+        </div>
       </div>
       <div className='w-1/2 mr-3 py-2 flex justify-end'>
         <div className='ml-6 text-right'>
