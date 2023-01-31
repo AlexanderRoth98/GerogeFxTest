@@ -24,7 +24,7 @@ const Card = ({ data }) => {
         <div className='ml-6 text-right'>
           <AmountContainer multiplierCallBack={setMultiplier} exchangeRate={data.exchangeRate} />
         </div>
-        <CurrencyDisplay className='max-[600px]:mt-[49px] min-[600px]:mt-5 ml-8' currency={'EUR'} />
+        <CurrencyDisplay className='max-[576px]:mt-[49px] min-[576px]:mt-5 ml-8' currency={'EUR'} />
       </div>
       {/* {data.currency} {data.nameI18N} buy: {data.exchangeRate.buy} sell: {data.exchangeRate.sell} flag: {data.flags} flagAlt: {data.currency.slice(0, 2).toLowerCase()}{' '} */}
     </div>

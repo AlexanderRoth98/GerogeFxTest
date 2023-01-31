@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/:currency?" children={<Home />} />
+        <Route path="/:currencyFilter?" children={<Home />} />
       </Switch>
     </Router>
   )

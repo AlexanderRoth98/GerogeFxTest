@@ -8,7 +8,7 @@ const CountryDisplay = ({ currency }) => {
   let countries = mapCurrencyToCountry(currency)
 
   return countries.length == 1 ? (
-    <div>{countries[0]}</div>
+    <div className='text-[14px]'>{countries[0]}</div>
   ) : (
     <div>
       Several Countries

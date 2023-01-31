@@ -15,7 +15,7 @@ const CurrencyDisplay = ({ className, multiplier, currency }) => {
   if (!content) content = <span>{currency}</span>
 
   return (
-    <span id='currency' className={`font-bold text-2xl max-[600px]:text-base ${className}`}>
+    <span id='currency' className={`font-bold text-2xl max-[740px]:text-base ${className}`}>
       {content}
     </span>
   )

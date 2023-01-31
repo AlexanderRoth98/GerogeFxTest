@@ -6,22 +6,30 @@ import SearchBar from '../search/SearchBar'
 import { fetchCurrencyList } from '../../service/CurrencyService'
 
 const Home = () => {
-  let { currency } = useParams()
+  let { currencyFilter } = useParams()
   const [data, setData] = useState()
+  const [options, setOptions] = useState()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetchCurrencyList(fetchCallBack)
-  }, [])
+    fetchCurrencyList(fetchCallBack, currencyFilter)
+  }, [currencyFilter])
 
-  const fetchCallBack = (currencyList) => {
+  const fetchCallBack = (currencyList, selectionList) => {
     setData(currencyList)
+    setOptions(selectionList)
+    setLoading(false)
+  }
+
+  if (loading) {
+    return <div className='text-center mt-5'>Fetching data...</div>
   }
 
   return (
     <div id='app-container'>
       <Header />
-      <SearchBar />
-      <CurrencyList data={data} />
+      <SearchBar options={options} selectedOptions={currencyFilter} />
+      {data ? <CurrencyList data={data} /> : <div className='text-center'>No data available</div>}
     </div>
   )
 }
