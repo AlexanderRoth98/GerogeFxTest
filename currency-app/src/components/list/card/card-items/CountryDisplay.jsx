@@ -8,11 +8,7 @@ const CountryDisplay = ({ currency }) => {
   let countries = mapCurrencyToCountry(currency)
 
   return countries.length == 1 ? (
-    <div>
-      {countries.map((country) => {
-        return <span>{country}</span>
-      })}
-    </div>
+    <div>{countries[0]}</div>
   ) : (
     <div>
       Several Countries
