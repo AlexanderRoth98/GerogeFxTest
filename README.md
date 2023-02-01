@@ -12,7 +12,7 @@ TailwindCSS: ^3.2.4
 
 run command "npm install"
 
-after instalation run command "npm start"
+after installation run command "npm start"
 
 open localhost:3000
 
