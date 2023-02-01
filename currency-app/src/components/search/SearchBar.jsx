@@ -60,7 +60,9 @@ const SearchBar = ({ options, selectedOptions }) => {
                 <br />
                 To filter the options you can type in the box.
                 <br />
-                To search click on the icon to the left. To reset the list remove all selections and search.
+                To search click on the icon to the left.
+                <br />
+                To reset the list remove all selections and search.
               </span>
             }
             placement='bottom'
