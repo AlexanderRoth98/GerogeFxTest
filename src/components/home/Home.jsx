@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../header/Header'
 import CurrencyList from '../list/CurrencyList'
-import SearchBar from '../search/SearchBar'
+import SearchArea from '../search/SearchArea'
 import { fetchCurrencyList } from '../../service/CurrencyService'
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div id='app-container'>
       <Header />
-      <SearchBar options={options} selectedOptions={currencyFilter} />
+      <SearchArea options={options} selectedOptions={currencyFilter} />
       {data ? <CurrencyList data={data} /> : <div className='text-center'>No data available</div>}
     </div>
   )

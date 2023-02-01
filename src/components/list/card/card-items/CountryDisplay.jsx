@@ -8,13 +8,20 @@ const CountryDisplay = ({ currency }) => {
   let countries = mapCurrencyToCountry(currency)
 
   return countries.length == 1 ? (
-    <div className='text-[14px]'>{countries[0]}</div>
+    <div id='country-name' className='text-[14px]'>
+      {countries[0]}
+    </div>
   ) : (
-    <div>
+    <div id='country-names'>
       Several Countries
       <Tooltip
-        title={countries.map((country) => {
-          return <div>{country}</div>
+        id='country-tooltip'
+        title={countries.map((country, index) => {
+          return (
+            <div id={`country-entry-${index}`} key={country}>
+              {country}
+            </div>
+          )
         })}
         placement='right'
         arrow
@@ -30,7 +37,7 @@ const CountryDisplay = ({ currency }) => {
           },
         }}
       >
-        <FontAwesomeIcon className='text-blue ml-1' icon={faCircleInfo} />
+        <FontAwesomeIcon id='country-info' className='text-blue ml-1' icon={faCircleInfo} />
       </Tooltip>
     </div>
   )
