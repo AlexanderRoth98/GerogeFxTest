@@ -7,7 +7,7 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 const CountryDisplay = ({ currency }) => {
   let countries = mapCurrencyToCountry(currency)
 
-  return countries.length == 1 ? (
+  return countries.length === 1 ? (
     <div id='country-name' className='text-[14px]'>
       {countries[0]}
     </div>

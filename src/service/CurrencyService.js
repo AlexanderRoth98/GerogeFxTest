@@ -40,7 +40,7 @@ export async function fetchCurrencyList(fetchCallback, currencyFilter) {
 }
 
 const cleanCurrencyList = (currencyList) => {
-    currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate && entry.currency.trim().length != 0 && entry.currency != 'EUR')
+    currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate && entry.currency.trim().length !== 0 && entry.currency !== 'EUR')
 }
 
 const getAvailableOptions = (currencyList, selectionList) => {

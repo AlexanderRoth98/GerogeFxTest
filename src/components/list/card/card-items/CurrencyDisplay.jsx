@@ -4,7 +4,7 @@ const CurrencyDisplay = ({ className, multiplier, currency }) => {
   let content
 
   if (multiplier) {
-    if (multiplier != '1')
+    if (multiplier !== 1)
       content = (
         <span>
           {multiplier} {currency}

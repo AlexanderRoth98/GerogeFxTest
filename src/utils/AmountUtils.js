@@ -8,14 +8,14 @@ export function formatAmount(exchangeRate) {
     const buyStringAmount = buy.toString()
     const decimalIndex = buyStringAmount.indexOf('.')
 
-    if (decimalIndex != '-1' && buyStringAmount[decimalIndex - 1] == '0') {
+    if (decimalIndex !== '-1' && buyStringAmount[decimalIndex - 1] === '0') {
         let ok = false
         let index = 1
 
         while (!ok) {
-            if (buyStringAmount[decimalIndex + index] != '0') {
+            if (buyStringAmount[decimalIndex + index] !== '0') {
                 ok = true
-                let multiply = index == 1 ? Math.pow(10, (index - 1)) : Math.pow(10, index)
+                let multiply = index === 1 ? Math.pow(10, (index - 1)) : Math.pow(10, index)
 
                 formattedExchangeRate.buy = (multiply * buy).toFixed(4)
                 formattedExchangeRate.sell = (multiply * sell).toFixed(4)

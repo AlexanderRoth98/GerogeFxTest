@@ -14,7 +14,7 @@ const AmountContainer = ({ multiplierCallBack, exchangeRate }) => {
     setGet(formattedAmount.sell)
     setMid(formattedAmount.mid)
     multiplierCallBack(formattedAmount.multiply)
-  }, [])
+  }, [exchangeRate, multiplierCallBack])
 
   return (
     <>
