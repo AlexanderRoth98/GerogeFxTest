@@ -3,18 +3,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 React: ^18.2.0
+
 TailwindCSS: ^3.2.4
 
 ## How install and run
 
 run command "npm install"
+
 after instalation run command "npm start"
+
 open localhost:3000
 
 ## Deep linking
 
 To use deep linking add currencies after root. Split currencies with '&'.
+
 There is no case sensitivity.
+
 At least one currency should be valid.
 
 ### Examples:
@@ -22,6 +27,7 @@ At least one currency should be valid.
 http://localhost:3000 -> returns all
 
 http://localhost:3000/RON -> returns RON
+
 http://localhost:3000/ron -> returns RON
 
 http://localhost:3000/ATS&BEF&BHD&RON -> returns ATS, BEF, BHD and RON
