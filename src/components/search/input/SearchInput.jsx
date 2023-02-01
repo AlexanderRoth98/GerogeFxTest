@@ -7,7 +7,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const SearchInput = ({ options, selectedOptions }) => {
   const [selected, setSelected] = useState([])
-  const [defaultValue] = useState(selectedOptions ? selectedOptions.toUpperCase().split('&') : [])
+  const [defaultValue] = useState(selectedOptions)
   const history = useHistory()
 
   const handleChange = (values) => {
@@ -44,7 +44,7 @@ const SearchInput = ({ options, selectedOptions }) => {
           },
           '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': { border: '1px solid #eee' },
         }}
-        renderInput={(params) => <TextField id='search-input-field' placeholder={selected.length === 0 ? 'Select multiple currencies...' : ''} {...params} />}
+        renderInput={(params) => <TextField id='search-input-field' placeholder={selected.length === 0 ? 'Select one or more currencies...' : ''} {...params} />}
       />
       <FontAwesomeIcon id='search-icon' onClick={() => onSearch()} className='text-white text-2xl mt-2 cursor-pointer ml-2' icon={faMagnifyingGlass} />
     </>
