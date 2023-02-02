@@ -1,5 +1,5 @@
 import React from 'react'
-import ListItem from './list-item/ListItem'
+import ListItem from './ListItem'
 
 const CurrencyList = ({ data }) => {
   return data.fx.length > 0 ? (
