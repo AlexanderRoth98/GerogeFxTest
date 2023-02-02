@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Header from '../Header'
 
-describe('Header tests', () => {
+describe('Header', () => {
   it('should return the app title', () => {
     render(<Header />)
     const headerTitle = screen.getByRole('heading', { name: /george/i })
