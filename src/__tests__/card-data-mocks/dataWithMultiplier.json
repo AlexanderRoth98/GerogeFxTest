@@ -1,0 +1,12 @@
+{
+  "currency": "ZWD",
+  "precision": 2,
+  "exchangeRate": {
+    "buy": 46490,
+    "middle": 46500,
+    "sell": 46510,
+    "indicator": 0,
+    "lastModified": "2008-05-01T22:00:00Z"
+  },
+  "flags": ["provided"]
+}

@@ -1,0 +1,21 @@
+{
+  "currency": "USD",
+  "precision": 2,
+  "nameI18N": "US Dollar",
+  "denominations": [100, 50, 20, 10, 5, 1],
+  "exchangeRate": {
+    "buy": 1.1299,
+    "middle": 1.1349,
+    "sell": 1.1399,
+    "indicator": 0,
+    "lastModified": "2018-11-08T23:00:00Z"
+  },
+  "banknoteRate": {
+    "buy": 1.131,
+    "middle": 1.149,
+    "sell": 1.167,
+    "indicator": 0,
+    "lastModified": "2018-11-06T23:00:00Z"
+  },
+  "flags": ["provided"]
+}

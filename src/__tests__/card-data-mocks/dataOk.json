@@ -1,0 +1,20 @@
+{
+  "currency": "RON",
+  "precision": 2,
+  "nameI18N": "Romanian Leu New",
+  "exchangeRate": {
+    "buy": 4.5365,
+    "middle": 4.6565,
+    "sell": 4.7765,
+    "indicator": 0,
+    "lastModified": "2018-11-08T23:00:00Z"
+  },
+  "banknoteRate": {
+    "buy": 4.412,
+    "middle": 4.662,
+    "sell": 4.912,
+    "indicator": 0,
+    "lastModified": "2018-11-06T23:00:00Z"
+  },
+  "flags": ["provided"]
+}

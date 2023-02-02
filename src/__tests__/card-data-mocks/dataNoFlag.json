@@ -1,0 +1,12 @@
+{
+  "currency": "GIP",
+  "precision": 2,
+  "exchangeRate": {
+    "buy": 3,
+    "middle": 3.5,
+    "sell": 4,
+    "indicator": 0,
+    "lastModified": "2014-11-12T23:00:00Z"
+  },
+  "flags": ["provided"]
+}
