@@ -7,6 +7,8 @@ import dataWithMultiplier from './card-data-mocks/dataWithMultiplier.json'
 import dataWithSeveralCountries from './card-data-mocks/dataWithSeveralCountries.json'
 
 describe('Card', () => {
+  //Flag block
+
   describe('Flag', () => {
     it('returns country flag', () => {
       render(<Card data={dataOk} />)
@@ -20,6 +22,8 @@ describe('Card', () => {
       expect(flag).toBeInTheDocument()
     })
   })
+
+  // Currency Block
 
   describe('Currency Display', () => {
     it('returns the currency with no multiplier', () => {
@@ -36,6 +40,8 @@ describe('Card', () => {
       expect(currency).toBeInTheDocument()
     })
   })
+
+  // Country Name block
 
   describe('Country name', () => {
     describe('One Country ', () => {
@@ -82,6 +88,8 @@ describe('Card', () => {
       })
     })
   })
+
+  //Exchange rates block
 
   describe('Exchange rates block', () => {
     describe('Exchange label', () => {
