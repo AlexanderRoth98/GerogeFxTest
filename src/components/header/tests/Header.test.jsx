@@ -2,13 +2,13 @@ import { render, screen } from '@testing-library/react'
 import Header from '../Header'
 
 describe('Header', () => {
-  it('should return the app title', () => {
+  it('returns the app title', () => {
     render(<Header />)
     const headerTitle = screen.getByRole('heading', { name: /george/i })
     expect(headerTitle).toBeInTheDocument()
   })
 
-  it('should return the author name', () => {
+  it('returns the author name', () => {
     render(<Header />)
     const name = screen.getByRole('heading', { name: /alexander/i })
     expect(name).toBeInTheDocument()
