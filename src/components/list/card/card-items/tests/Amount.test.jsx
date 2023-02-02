@@ -9,42 +9,44 @@ const mockExchangeRate = {
   lastModified: '2018-11-08T23:00:00Z',
 }
 
-describe('Exchange label', () => {
-  it('returns pay exchange label', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const pay = screen.getByText(/pay/i)
-    expect(pay).toBeInTheDocument()
+describe('Exchange rates block', () => {
+  describe('Exchange label', () => {
+    it('returns pay exchange label', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const pay = screen.getByText(/pay/i)
+      expect(pay).toBeInTheDocument()
+    })
+
+    it('returns get exchange label', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const get = screen.getByText(/get/i)
+      expect(get).toBeInTheDocument()
+    })
+
+    it('returns mid exchange label', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const mid = screen.getByText(/mid/i)
+      expect(mid).toBeInTheDocument()
+    })
   })
 
-  it('returns get exchange label', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const get = screen.getByText(/get/i)
-    expect(get).toBeInTheDocument()
-  })
+  describe('Exchange rate', () => {
+    it('returns pay exchange rate', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const pay = screen.getByText('0.2459')
+      expect(pay).toBeInTheDocument()
+    })
 
-  it('returns mid exchange label', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const mid = screen.getByText(/mid/i)
-    expect(mid).toBeInTheDocument()
-  })
-})
+    it('returns get exchange rate', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const get = screen.getByText('0.2344')
+      expect(get).toBeInTheDocument()
+    })
 
-describe('Exchange rate', () => {
-  it('returns pay exchange rate', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const pay = screen.getByText('0.2459')
-    expect(pay).toBeInTheDocument()
-  })
-
-  it('returns get exchange rate', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const get = screen.getByText('0.2344')
-    expect(get).toBeInTheDocument()
-  })
-
-  it('returns mid exchange rate', () => {
-    render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
-    const mid = screen.getByText('0.2402')
-    expect(mid).toBeInTheDocument()
+    it('returns mid exchange rate', () => {
+      render(<AmountContainer multiplierCallBack={jest.fn()} exchangeRate={mockExchangeRate} />)
+      const mid = screen.getByText('0.2402')
+      expect(mid).toBeInTheDocument()
+    })
   })
 })
