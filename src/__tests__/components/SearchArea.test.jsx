@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event'
 import SearchArea from '../../components/search/SearchArea'
 
 const options = ['RON', 'ATS', 'USD']
-const filteringOptions = ['AED', 'AFN', 'ARS', 'RON']
 
 describe('Search Area', () => {
   // Heading
