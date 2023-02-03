@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react'
+import { findByText, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SearchArea from '../../components/search/SearchArea'
 
 const options = ['RON', 'ATS', 'USD']
+const filteringOptions = ['AED', 'AFN', 'ARS', 'RON']
 
 describe('Search Area', () => {
   // Heading
@@ -21,6 +22,57 @@ describe('Search Area', () => {
 
       const searchBar = screen.getByRole('combobox')
       expect(searchBar).toBeInTheDocument()
+    })
+
+    it('returns filtered options list', async () => {
+      render(<SearchArea options={options} />)
+
+      const user = userEvent.setup()
+      const searchBar = screen.getByRole('combobox')
+
+      await user.type(searchBar, 'A')
+
+      const ronChip = screen.queryByText('RON')
+
+      expect(ronChip).not.toBeInTheDocument()
+    })
+
+    it('returns selected currency', async () => {
+      render(<SearchArea options={options} />)
+
+      const user = userEvent.setup()
+      const searchBar = screen.getByRole('combobox')
+
+      await user.type(searchBar, 'RO')
+
+      const currency = screen.getByText('RON')
+      await user.click(currency)
+
+      const ronChip = screen.getByText('RON')
+
+      expect(ronChip).toBeInTheDocument()
+    })
+
+    it('returns multiple selected currencies', async () => {
+      render(<SearchArea options={options} />)
+
+      const user = userEvent.setup()
+      const searchBar = screen.getByRole('combobox')
+
+      await user.type(searchBar, 'RO')
+
+      const currencyRON = screen.getByText('RON')
+      await user.click(currencyRON)
+
+      await user.type(searchBar, 'AT')
+
+      const currencyATS = screen.getByText('ATS')
+      await user.click(currencyATS)
+
+      const ronChip = screen.getByText('RON')
+      const atsChip = screen.getByText('ATS')
+
+      expect(ronChip && atsChip).toBeInTheDocument()
     })
 
     it('returns search icon', () => {
