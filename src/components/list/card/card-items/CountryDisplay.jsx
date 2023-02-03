@@ -37,8 +37,8 @@ const CountryDisplay = ({ currency }) => {
           },
         }}
       >
-        <span role='info'>
-          <FontAwesomeIcon id='country-info' className='text-blue ml-1' icon={faCircleInfo} />
+        <span>
+          <FontAwesomeIcon title='info-icon' id='country-info' className='text-blue ml-1' icon={faCircleInfo} />
         </span>
       </Tooltip>
     </div>
