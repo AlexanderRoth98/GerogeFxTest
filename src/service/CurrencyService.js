@@ -1,6 +1,6 @@
 
 export async function fetchCurrencyList(fetchCallback, currencyFilter) {
-    let currencyList
+    let currencyList = {}
     let selectionList = []
 
     const url = 'https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343'
@@ -13,28 +13,26 @@ export async function fetchCurrencyList(fetchCallback, currencyFilter) {
         }))
         .then((data) => (currencyList = data))
         .catch((err) => {
-            console.log(err.message)
+            currencyList.error = err
         })
 
-    currencyList.fx.sort((a, b) => {
-        if (a.currency < b.currency) {
-            return -1
-        }
-        else {
-            return 1
-        }
-    })
+    if (!currencyList.error) {
 
+        currencyList.fx.sort((a, b) => {
+            if (a.currency < b.currency) {
+                return -1
+            }
+            else {
+                return 1
+            }
+        })
 
-    cleanCurrencyList(currencyList)
+        cleanCurrencyList(currencyList)
+        getAvailableOptions(currencyList, selectionList)
 
-    getAvailableOptions(currencyList, selectionList)
-
-
-    if (currencyFilter)
-        filterCurrecyList(currencyList, currencyFilter)
-
-
+        if (currencyFilter)
+            filterCurrecyList(currencyList, currencyFilter)
+    }
 
     fetchCallback(currencyList, selectionList)
 }

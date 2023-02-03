@@ -29,7 +29,13 @@ const Home = () => {
     <div id='app-container'>
       <Header />
       <SearchArea options={options} selectedOptions={currencyFilter} />
-      {data ? <CurrencyList data={data} /> : <div className='text-center'>No data available</div>}
+      {data && !data.error ? (
+        <CurrencyList data={data} />
+      ) : (
+        <div id='no-data-message' className='text-center'>
+          Error: {data.error.message}
+        </div>
+      )}
     </div>
   )
 }

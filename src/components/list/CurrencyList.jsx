@@ -9,7 +9,9 @@ const CurrencyList = ({ data }) => {
       ))}
     </ul>
   ) : (
-    <div className='text-center'>Search criteria invalid. Please select currencies from the select bar.</div>
+    <div id='invalid-search-criteria' className='text-center'>
+      Search criteria invalid. Please select currencies from the select bar.
+    </div>
   )
 }
 
