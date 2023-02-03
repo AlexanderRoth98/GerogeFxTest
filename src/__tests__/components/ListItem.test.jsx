@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import ListItem from '../components/list/ListItem'
-import dataOk from '../mocks/list-entry/dataOk.json'
-import dataNoFlag from '../mocks/list-entry/dataNoFlag.json'
-import dataWithMultiplier from '../mocks/list-entry/dataWithMultiplier.json'
-import dataWithSeveralCountries from '../mocks/list-entry/dataWithSeveralCountries.json'
+import ListItem from '../../components/list/ListItem'
+import dataOk from '../../mocks/list-entry/dataOk.json'
+import dataNoFlag from '../../mocks/list-entry/dataNoFlag.json'
+import dataWithMultiplier from '../../mocks/list-entry/dataWithMultiplier.json'
+import dataWithSeveralCountries from '../../mocks/list-entry/dataWithSeveralCountries.json'
 
 describe('ListItem', () => {
   describe('Date area', () => {
@@ -84,7 +84,7 @@ describe('ListItem', () => {
             expect(nullTooltip).not.toBeInTheDocument()
           })
 
-          it('returns tooltip  after hover', async () => {
+          it('returns tooltip after hover', async () => {
             render(<ListItem data={dataWithSeveralCountries} />)
             const user = userEvent.setup()
 

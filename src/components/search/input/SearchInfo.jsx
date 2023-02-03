@@ -34,7 +34,9 @@ const SearchInfo = ({ iconStyle }) => {
           },
         }}
       >
-        <FontAwesomeIcon id='search-info' className={`text-white text-2xl ${iconStyle}`} icon={faCircleInfo} />
+        <span>
+          <FontAwesomeIcon title='search-info-icon' id='search-info' className={`text-white text-2xl ${iconStyle}`} icon={faCircleInfo} />
+        </span>
       </Tooltip>
     </>
   )

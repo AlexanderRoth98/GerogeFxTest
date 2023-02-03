@@ -46,7 +46,9 @@ const SearchInput = ({ options, selectedOptions }) => {
         }}
         renderInput={(params) => <TextField id='search-input-field' placeholder={selected.length === 0 ? 'Select one or more currencies...' : ''} {...params} />}
       />
-      <FontAwesomeIcon id='search-icon' onClick={() => onSearch()} className='text-white text-2xl mt-2 cursor-pointer ml-2' icon={faMagnifyingGlass} />
+      <span>
+        <FontAwesomeIcon title='search-icon' id='search-icon' onClick={() => onSearch()} className='text-white text-2xl mt-2 cursor-pointer ml-2' icon={faMagnifyingGlass} />
+      </span>
     </>
   )
 }
