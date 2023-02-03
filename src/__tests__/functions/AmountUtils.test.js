@@ -22,8 +22,6 @@ describe('Amount fromatting', () => {
             "lastModified": "2008-05-01T22:00:00Z"
         }
         const formattedAmount = formatAmount(exchangeRate)
-        console.log(formattedAmount)
-
         expect(formattedAmount).toEqual({ buy: '2.1510', sell: '2.1501', mid: '2.1505', multiply: 100000 })
     })
 
