@@ -3,13 +3,14 @@ import {
   Route,
 
 } from 'react-router-dom'
-import Home from './components/home/Home'
+import CurrencyPage from './components/CurrencyPage'
+
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/:currencyFilter?" children={<Home />} />
+        <Route path="/:currencyFilter?" children={<CurrencyPage />} />
       </Switch>
     </Router>
   )

@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Header from '../header/Header'
-import CurrencyList from '../list/CurrencyList'
-import SearchArea from '../search/SearchArea'
-import { fetchCurrencyList } from '../../service/CurrencyService'
+import Header from './header/Header'
+import CurrencyList from './list/CurrencyList'
+import SearchArea from './search/SearchArea'
+import { fetchCurrencyList } from './service/CurrencyService'
 
-const Home = () => {
+const CurrencyPage = () => {
   let { currencyFilter } = useParams()
   const [data, setData] = useState()
   const [options, setOptions] = useState()
@@ -40,4 +40,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default CurrencyPage
