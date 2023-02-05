@@ -94,4 +94,57 @@ describe('Full app tests', () => {
       expect(items).toHaveLength(1)
     })
   })
+
+  describe('Deep linking', () => {
+    test('one search criteria', async () => {
+      render(
+        <Router initialEntries={['/RON']}>
+          <App />
+        </Router>
+      )
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(1)
+    })
+
+    test('one search criteria lowercase', async () => {
+      render(
+        <Router initialEntries={['/ron']}>
+          <App />
+        </Router>
+      )
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(1)
+    })
+
+    test('several search criteria', async () => {
+      render(
+        <Router initialEntries={['/AFN&RON']}>
+          <App />
+        </Router>
+      )
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(2)
+    })
+
+    test('several search criteria with error', async () => {
+      render(
+        <Router initialEntries={['/RON&XYZ']}>
+          <App />
+        </Router>
+      )
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(1)
+    })
+
+    test('invalid search criteria', async () => {
+      render(
+        <Router initialEntries={['/xyz']}>
+          <App />
+        </Router>
+      )
+      const invalidMessage = await screen.findByText(/invalid/i)
+
+      expect(invalidMessage).toBeInTheDocument()
+    })
+  })
 })

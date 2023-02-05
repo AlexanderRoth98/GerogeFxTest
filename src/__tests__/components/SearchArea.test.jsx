@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SearchArea from '../../components/search/SearchArea'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const options = ['RON', 'ATS', 'USD']
 
@@ -8,7 +9,7 @@ describe('Search Area', () => {
   // Heading
   describe('Heading', () => {
     it('returns heading', () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
       const heading = screen.getByRole('heading')
       expect(heading).toBeInTheDocument()
     })
@@ -17,14 +18,14 @@ describe('Search Area', () => {
   // Search Bar
   describe('Search Bar', () => {
     it('returns autocomplete', () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const searchBar = screen.getByRole('combobox')
       expect(searchBar).toBeInTheDocument()
     })
 
     it('returns filtered options list', async () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const user = userEvent.setup()
       const searchBar = screen.getByRole('combobox')
@@ -37,7 +38,7 @@ describe('Search Area', () => {
     })
 
     it('returns selected currency', async () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const user = userEvent.setup()
       const searchBar = screen.getByRole('combobox')
@@ -53,7 +54,7 @@ describe('Search Area', () => {
     })
 
     it('returns multiple selected currencies', async () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const user = userEvent.setup()
       const searchBar = screen.getByRole('combobox')
@@ -75,7 +76,7 @@ describe('Search Area', () => {
     })
 
     it('returns search icon', () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const searchIcon = screen.getByTitle('search-icon')
       expect(searchIcon).toBeInTheDocument()
@@ -85,21 +86,21 @@ describe('Search Area', () => {
   //Tooltip
   describe('Info Area', () => {
     it('returns info icon', () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const infoIcon = screen.getByTitle('search-info-icon')
       expect(infoIcon).toBeInTheDocument()
     })
 
     it('returns null tooltip', () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const nullTooltip = screen.queryByRole('tooltip')
       expect(nullTooltip).not.toBeInTheDocument()
     })
 
     it('returns tooltip after hover', async () => {
-      render(<SearchArea options={options} />)
+      render(<SearchArea options={options} />, { wrapper: Router })
 
       const user = userEvent.setup()
 
