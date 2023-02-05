@@ -1,7 +1,5 @@
 # GerogeFxTest
 
-!Still to do: tests!
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 React: ^18.2.0
@@ -15,6 +13,18 @@ run command "npm install"
 after installation run command "npm start"
 
 open localhost:3000
+
+## Testing
+
+React Testing Library: "^13.4.0",
+
+Jest DOM: "^5.16.5",
+
+Mock Service Worker: "^0.47.4",
+
+all tests can be found under **tests**
+
+to run tests run command "npm test"
 
 ## Deep linking
 
