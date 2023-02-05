@@ -1,14 +1,14 @@
 import { useState, React } from 'react'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const SearchInput = ({ options, selectedOptions }) => {
   const [selected, setSelected] = useState([])
   const [defaultValue] = useState(selectedOptions)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleChange = (values) => {
     setSelected(values)
@@ -23,7 +23,7 @@ const SearchInput = ({ options, selectedOptions }) => {
       })
     }
 
-    history.push(url)
+    navigate(url)
   }
 
   return (

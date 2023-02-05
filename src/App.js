@@ -1,20 +1,14 @@
-import {
-  BrowserRouter as Router, Switch,
-  Route,
-
-} from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import CurrencyPage from './components/CurrencyPage'
-
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/:currencyFilter?" children={<CurrencyPage />} />
-      </Switch>
-    </Router>
+    <div id='app'>
+      <Routes>
+        <Route path="/:currencyFilter?" element={<CurrencyPage />} />
+      </Routes>
+    </div>
   )
 }
-
 
 export default App

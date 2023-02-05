@@ -3,13 +3,15 @@ import App from '../../App'
 import { rest } from 'msw'
 import { server } from '../../mocks/server/server.js'
 import userEvent from '@testing-library/user-event'
-import { createMemoryHistory } from 'history'
-import { Router } from 'react-router-dom'
-import CurrencyPage from '../../components/CurrencyPage'
+import { MemoryRouter as Router } from 'react-router-dom'
 
 describe('Full app tests', () => {
   test('loading message is displayed', () => {
-    render(<App />)
+    render(
+      <Router>
+        <App />
+      </Router>
+    )
 
     const message = screen.getByText(/fetching/i)
 
@@ -17,7 +19,11 @@ describe('Full app tests', () => {
   })
 
   test('page loads with currencies', async () => {
-    render(<App />)
+    render(
+      <Router>
+        <App />
+      </Router>
+    )
 
     const items = await screen.findAllByRole('listitem')
 
@@ -27,7 +33,11 @@ describe('Full app tests', () => {
   test('error message is displayed', async () => {
     server.resetHandlers(rest.get('https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343', (req, res, ctx) => res(ctx.status(500))))
 
-    render(<App />)
+    render(
+      <Router>
+        <App />
+      </Router>
+    )
 
     const message = await screen.findByText(/error/i)
 
@@ -35,7 +45,11 @@ describe('Full app tests', () => {
   })
 
   test('search for several currencies', async () => {
-    render(<App />)
+    render(
+      <Router>
+        <App />
+      </Router>
+    )
 
     const user = userEvent.setup()
     const searchBar = await screen.findByRole('combobox')
@@ -57,15 +71,12 @@ describe('Full app tests', () => {
     })
   })
 
-  test.only('search for one currency', async () => {
-    render(<App />)
-
-    console.log(window.location.href)
-    Object.defineProperty(window.location, 'href', {
-      writable: true,
-      value: 'tristo',
-    })
-    console.log(window.location.href)
+  test('search for one currency', async () => {
+    render(
+      <Router>
+        <App />
+      </Router>
+    )
 
     const user = userEvent.setup()
     const searchBar = await screen.findByRole('combobox')
@@ -78,7 +89,6 @@ describe('Full app tests', () => {
     const searchIcon = screen.getByTitle('search-icon')
     await user.click(searchIcon)
 
-    console.log(window.location.href)
     await waitFor(async () => {
       const items = await screen.findAllByRole('listitem')
       expect(items).toHaveLength(1)
