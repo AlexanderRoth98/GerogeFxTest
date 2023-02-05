@@ -1,4 +1,4 @@
-import { findByText, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SearchArea from '../../components/search/SearchArea'
 
@@ -44,7 +44,7 @@ describe('Search Area', () => {
 
       await user.type(searchBar, 'RO')
 
-      const currency = screen.getByText('RON')
+      const currency = screen.getByRole('option', { name: 'RON' })
       await user.click(currency)
 
       const ronChip = screen.getByText('RON')
@@ -77,8 +77,8 @@ describe('Search Area', () => {
     it('returns search icon', () => {
       render(<SearchArea options={options} />)
 
-      const seachIcon = screen.getByTitle('search-icon')
-      expect(seachIcon).toBeInTheDocument()
+      const searchIcon = screen.getByTitle('search-icon')
+      expect(searchIcon).toBeInTheDocument()
     })
   })
 
