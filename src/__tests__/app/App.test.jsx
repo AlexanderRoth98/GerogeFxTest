@@ -7,11 +7,7 @@ import { MemoryRouter as Router } from 'react-router-dom'
 
 describe('Full app tests', () => {
   test('loading message is displayed', () => {
-    render(
-      <Router>
-        <App />
-      </Router>
-    )
+    render(<App />, { wrapper: Router })
 
     const message = screen.getByText(/fetching/i)
 
@@ -19,11 +15,7 @@ describe('Full app tests', () => {
   })
 
   test('page loads with currencies', async () => {
-    render(
-      <Router>
-        <App />
-      </Router>
-    )
+    render(<App />, { wrapper: Router })
 
     const items = await screen.findAllByRole('listitem')
 
@@ -33,11 +25,7 @@ describe('Full app tests', () => {
   test('error message is displayed', async () => {
     server.resetHandlers(rest.get('https://run.mocky.io/v3/c88db14a-3128-4fbd-af74-1371c5bb0343', (req, res, ctx) => res(ctx.status(500))))
 
-    render(
-      <Router>
-        <App />
-      </Router>
-    )
+    render(<App />, { wrapper: Router })
 
     const message = await screen.findByText(/error/i)
 
@@ -45,11 +33,7 @@ describe('Full app tests', () => {
   })
 
   test('search for several currencies', async () => {
-    render(
-      <Router>
-        <App />
-      </Router>
-    )
+    render(<App />, { wrapper: Router })
 
     const user = userEvent.setup()
     const searchBar = await screen.findByRole('combobox')
@@ -72,11 +56,7 @@ describe('Full app tests', () => {
   })
 
   test('search for one currency', async () => {
-    render(
-      <Router>
-        <App />
-      </Router>
-    )
+    render(<App />, { wrapper: Router })
 
     const user = userEvent.setup()
     const searchBar = await screen.findByRole('combobox')
