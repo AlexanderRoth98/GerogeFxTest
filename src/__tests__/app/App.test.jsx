@@ -143,8 +143,17 @@ describe('Full app tests', () => {
         </Router>
       )
       const invalidMessage = await screen.findByText(/invalid/i)
-
       expect(invalidMessage).toBeInTheDocument()
+    })
+
+    test('same criteria several times', async () => {
+      render(
+        <Router initialEntries={['/RON&RON&RON']}>
+          <App />
+        </Router>
+      )
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(1)
     })
   })
 })

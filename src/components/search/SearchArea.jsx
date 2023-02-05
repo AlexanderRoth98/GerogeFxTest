@@ -7,6 +7,9 @@ const SearchArea = ({ options, selectedOptions }) => {
   let selected = selectedOptions ? selectedOptions.toUpperCase().split('&') : []
   selected = selected.filter((element) => options.includes(element))
 
+  // Remove duplicates
+  selected = Array.from(new Set(selected))
+
   return (
     <div id='search-bar' className='flex mx-auto w-3/4 py-2 sticky top-0 bg-blue justify-center'>
       {options && (

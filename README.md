@@ -24,6 +24,8 @@ There is no case sensitivity.
 
 At least one currency should be valid.
 
+Adding one currecny several times will return only one list item.
+
 ### Examples:
 
 http://localhost:3000 -> returns all
@@ -39,6 +41,8 @@ http://localhost:3000/ATS&BEF&XYZ -> retunrns ATS and BEF
 http://localhost:3000/XYZ -> retunrns error message
 
 http://localhost:3000/XYZ&RON -> retunrns RON
+
+http://localhost:3000/RON&RON&RON -> retunrns RON
 
 ## Sources
 
