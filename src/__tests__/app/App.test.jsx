@@ -3,6 +3,9 @@ import App from '../../App'
 import { rest } from 'msw'
 import { server } from '../../mocks/server/server.js'
 import userEvent from '@testing-library/user-event'
+import { createMemoryHistory } from 'history'
+import { Router } from 'react-router-dom'
+import CurrencyPage from '../../components/CurrencyPage'
 
 describe('Full app tests', () => {
   test('loading message is displayed', () => {
@@ -31,8 +34,38 @@ describe('Full app tests', () => {
     expect(message).toBeInTheDocument()
   })
 
-  test('search for one currency', async () => {
+  test('search for several currencies', async () => {
     render(<App />)
+
+    const user = userEvent.setup()
+    const searchBar = await screen.findByRole('combobox')
+
+    await user.type(searchBar, 'A')
+    const secondSelection = screen.getByRole('option', { name: 'AFN' })
+    await user.click(secondSelection)
+
+    await user.type(searchBar, 'A')
+    const firstSelection = screen.getByRole('option', { name: 'AED' })
+    await user.click(firstSelection)
+
+    const searchIcon = screen.getByTitle('search-icon')
+    await user.click(searchIcon)
+
+    await waitFor(async () => {
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(2)
+    })
+  })
+
+  test.only('search for one currency', async () => {
+    render(<App />)
+
+    console.log(window.location.href)
+    Object.defineProperty(window.location, 'href', {
+      writable: true,
+      value: 'tristo',
+    })
+    console.log(window.location.href)
 
     const user = userEvent.setup()
     const searchBar = await screen.findByRole('combobox')
@@ -45,9 +78,10 @@ describe('Full app tests', () => {
     const searchIcon = screen.getByTitle('search-icon')
     await user.click(searchIcon)
 
+    console.log(window.location.href)
     await waitFor(async () => {
-      const test = await screen.findAllByRole('listitem')
-      expect(test).toHaveLength(1)
+      const items = await screen.findAllByRole('listitem')
+      expect(items).toHaveLength(1)
     })
   })
 })
