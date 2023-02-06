@@ -6,7 +6,7 @@ React: ^18.2.0
 
 TailwindCSS: ^3.2.4
 
-## How install and run
+## How to install and run
 
 run command "npm install"
 
