@@ -1,5 +1,7 @@
 import React from 'react'
 
+/*Static header with link to personal LinkedIn profile*/
+
 const Header = () => {
   return (
     <div id='header' className='flex py-4'>
@@ -10,7 +12,9 @@ const Header = () => {
       </div>
       <div id='name-area' className='w-1/2'>
         <h1 id='name' className='text-2xl float-right mr-4 whitespace-nowrap'>
-          Alexander Roth
+          <a id='linked-in-link' href='https://www.linkedin.com/in/alexander-roth-26a048197' target='_blank' rel='noreferrer'>
+            Alexander Roth
+          </a>
         </h1>
       </div>
     </div>

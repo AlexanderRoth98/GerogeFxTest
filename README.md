@@ -22,8 +22,6 @@ Jest DOM: "^5.16.5",
 
 Mock Service Worker: "^0.47.4",
 
-all tests can be found under **tests**
-
 to run tests run command "npm test"
 
 ## Deep linking

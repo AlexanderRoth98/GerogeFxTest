@@ -4,8 +4,15 @@ import Tooltip from '@mui/material/Tooltip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 
+/* Show the country name of the currency.*/
+
 const CountryDisplay = ({ currency }) => {
-  let countries = mapCurrencyToCountry(currency)
+  let countries = mapCurrencyToCountry(currency) /* The mapper returns an array */
+
+  /* 
+  If only one country was found display the plain text.
+  If several countries show a tooltip with a list of all countries. 
+  */
 
   return countries.length === 1 ? (
     <div id='country-name' className='text-[14px]'>
@@ -37,6 +44,7 @@ const CountryDisplay = ({ currency }) => {
           },
         }}
       >
+        {/* Hovering over the icon will show the tooltip */}
         <span>
           <FontAwesomeIcon title='info-icon' id='country-info' className='text-blue ml-1' icon={faCircleInfo} />
         </span>

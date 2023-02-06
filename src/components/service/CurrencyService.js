@@ -1,4 +1,3 @@
-
 export async function fetchCurrencyList(fetchCallback, currencyFilter) {
     let currencyList = {}
     let selectionList = []
@@ -16,8 +15,9 @@ export async function fetchCurrencyList(fetchCallback, currencyFilter) {
             currencyList.error = err
         })
 
-    if (!currencyList.error) {
 
+    if (!currencyList.error) {
+        /*Sort response by currency */
         currencyList.fx.sort((a, b) => {
             if (a.currency < b.currency) {
                 return -1
@@ -37,15 +37,19 @@ export async function fetchCurrencyList(fetchCallback, currencyFilter) {
     fetchCallback(currencyList, selectionList)
 }
 
+/* Remove any data with missing exchange and unallowerd currencies */
 const cleanCurrencyList = (currencyList) => {
     currencyList.fx = currencyList.fx.filter(entry => entry.exchangeRate && entry.currency.trim().length !== 0 && entry.currency !== 'EUR')
 }
 
+/* Get all search options */
 const getAvailableOptions = (currencyList, selectionList) => {
     currencyList.fx.forEach((entry) => {
         selectionList.push(entry.currency)
     })
 }
+
+/* Apply filter after search or deep linking */
 const filterCurrecyList = (currencyList, filter) => {
 
     let options = filter.toUpperCase().split('&')

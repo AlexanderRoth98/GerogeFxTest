@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
+/* Shows autocomplete search bar */
+
 const SearchInput = ({ options, selectedOptions }) => {
   const [selected, setSelected] = useState([])
   const [defaultValue] = useState(selectedOptions)
@@ -14,6 +16,11 @@ const SearchInput = ({ options, selectedOptions }) => {
     setSelected(values)
   }
 
+  /*
+  On search the router navigates to '/' followed by the search criteria.
+  Each search criteria is split by '&'
+  This causes the CurrencyPage to render again with the given params.
+   */
   const onSearch = () => {
     let url = '/'
     if (selected.length > 0) {
@@ -46,6 +53,7 @@ const SearchInput = ({ options, selectedOptions }) => {
         }}
         renderInput={(params) => <TextField id='search-input-field' placeholder={selected.length === 0 ? 'Select one or more currencies...' : ''} {...params} />}
       />
+      {/* Clicking on the icon will trigger search */}
       <span>
         <FontAwesomeIcon title='search-icon' id='search-icon' onClick={() => onSearch()} className='text-white text-2xl mt-2 cursor-pointer ml-2' icon={faMagnifyingGlass} />
       </span>

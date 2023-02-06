@@ -2,6 +2,8 @@ import React from 'react'
 import Card from './card/Card'
 import { formatDate } from '../../utils/DateUtils'
 
+/* Returns a card component and a div containing the date of the exchange rate. */
+
 const ListItem = ({ data, index }) => {
   return (
     <li id={`currency-list-item-${index}`} className='py-4 content-center'>

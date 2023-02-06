@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@mui/material/Tooltip'
 
+/* Shows indications to how to use search through a tooltip */
 const SearchInfo = ({ iconStyle }) => {
   return (
     <>
@@ -34,6 +35,7 @@ const SearchInfo = ({ iconStyle }) => {
           },
         }}
       >
+        {/* Hovering over the icon will show the tooltip */}
         <span>
           <FontAwesomeIcon title='search-info-icon' id='search-info' className={`text-white text-2xl ${iconStyle}`} icon={faCircleInfo} />
         </span>

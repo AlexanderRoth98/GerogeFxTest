@@ -3,6 +3,13 @@ import AmountDisplay from './AmountDisplay'
 import { useState, useEffect } from 'react'
 import { formatAmount } from '../../../../utils/AmountUtils'
 
+/*
+Container for the exchange rates.
+Calls the formatAmount function and sends the retruned values to AmountDisplay components.
+formatAmount also determines the used multiplier
+multiplierCallBack sets the multiplier state in Card
+*/
+
 const AmountContainer = ({ multiplierCallBack, exchangeRate }) => {
   const [pay, setPay] = useState(null)
   const [get, setGet] = useState(null)

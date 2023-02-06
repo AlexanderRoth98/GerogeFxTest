@@ -1,5 +1,10 @@
 import React from 'react'
 
+/* 
+Displays the currecncy.
+A multipilier is schown in front, but only if it's not 1
+*/
+
 const CurrencyDisplay = ({ className, multiplier, currency }) => {
   let content
 
@@ -11,6 +16,11 @@ const CurrencyDisplay = ({ className, multiplier, currency }) => {
         </span>
       )
   }
+
+  /* 
+  In some cases the multiplier is undefined
+  Nevertheless show the currecy.
+  */
 
   if (!content) content = <span>{currency}</span>
 

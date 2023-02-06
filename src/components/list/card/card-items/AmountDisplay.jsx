@@ -1,4 +1,7 @@
 import React from 'react'
+
+/* Display the amount with a message in front. */
+
 const AmountDisplay = ({ message, amount }) => {
   return (
     <div id='exchange-info-area' className='flex justify-end'>
